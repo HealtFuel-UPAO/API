@@ -7,4 +7,7 @@ public interface UserService {
 
     //Método para registrar un usuario
     public User addUser (User user) throws Exception;
+
+    //Método para autentificar
+    public User authUser(String username, String password);
 }

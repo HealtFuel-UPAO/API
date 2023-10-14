@@ -18,4 +18,10 @@ public class UserServiceImpl implements UserService{
         User usuario = userRepository.save(user);
         return usuario;
     }
+
+    //Encontrar usuario por username y contraseña
+    @Override
+    public User authUser(String username, String password) {
+        return userRepository.findByUserNameAndPassword(username,password);
+    }
 }

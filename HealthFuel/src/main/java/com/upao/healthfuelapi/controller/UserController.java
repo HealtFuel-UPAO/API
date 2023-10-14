@@ -19,4 +19,11 @@ public class UserController {
         System.out.println(user);
         return ResponseEntity.ok(userService.addUser(user));
     }
+
+    //Iniciar Sesión
+    @PostMapping("/auth")
+    public ResponseEntity<User> autenticarUsuario(@RequestBody User user){
+        User us = userService.authUser(user.getUserName(), user.getPassword());
+        return ResponseEntity.ok(us);
+    }
 }
