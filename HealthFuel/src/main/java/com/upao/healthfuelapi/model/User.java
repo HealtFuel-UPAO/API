@@ -19,13 +19,13 @@ public class User {
     //nullabel(si puede ser nulo), length(longitud), unique(no se puede repetir)
     private Long id;
     @Column (nullable = false, length = 50)
-    private String first_name;
+    private String firstName;
     @Column (nullable = false, length = 50)
-    private  String last_name;
+    private  String lastName;
     @Column (nullable = false)
-    private LocalDate birth_date;
+    private LocalDate birthDate;
     @Column (nullable = false, length = 50, unique = true)
-    private String user_name;
+    private String userName;
     @Column (nullable = false)
     private int gender;
     @Column (nullable = true)
