@@ -5,6 +5,8 @@ import com.upao.healthfuelapi.model.Routine;
 import com.upao.healthfuelapi.repository.RoutineRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RoutineServiceImpl implements RoutineService {
 
@@ -16,6 +18,11 @@ public class RoutineServiceImpl implements RoutineService {
     @Override
     public Routine addRoutine(Routine routine) {
         return routineRepository.save(routine);
+    }
+
+    @Override
+    public List<Routine> findAllRoutine() {
+        return routineRepository.findAll();
     }
 
 }
