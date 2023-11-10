@@ -23,4 +23,9 @@ public class HabitController {
         return ResponseEntity.ok(habitService.addHabit(habit));
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminarRutina(@PathVariable Long id){
+        this.habitService.deleteHabit(id);
+        return ResponseEntity.ok("Eliminando -> "+id);
+    }
 }
