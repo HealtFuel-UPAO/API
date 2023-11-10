@@ -27,4 +27,8 @@ public class HabitServiceImpl implements HabitService {
         this.habitRepository.deleteById(id);
     }
 
+    public List<Habit> findAllByRoutine(Routine routine) {
+        return habitRepository.findAllByRoutine(routine);
+    }
+
 }
