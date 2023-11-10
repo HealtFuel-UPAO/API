@@ -27,5 +27,5 @@ public class Habit {
     @JoinColumn(name = "routine_id")
     private Routine routine;
 
-    
+
 }
