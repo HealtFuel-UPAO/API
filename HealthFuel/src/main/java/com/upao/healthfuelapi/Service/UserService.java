@@ -2,6 +2,8 @@ package com.upao.healthfuelapi.Service;
 
 import com.upao.healthfuelapi.model.User;
 
+import java.util.List;
+
 public interface UserService {
     //Metodos a Implementar
 
@@ -10,4 +12,7 @@ public interface UserService {
 
     //Método para autentificar
     public User authUser(String username, String password);
+
+    public List<User> getAllUsers();
 }
+
