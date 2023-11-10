@@ -1,10 +1,12 @@
 package com.upao.healthfuelapi.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import java.util.ArrayList;
+import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,6 +27,10 @@ public class Routine {
     @JoinColumn(name = "user_id")
     @ManyToOne
     private User user;
+
+    @OneToMany(mappedBy = "routine", fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<Habit> listaHabitos = new ArrayList<>();
 
 
 }

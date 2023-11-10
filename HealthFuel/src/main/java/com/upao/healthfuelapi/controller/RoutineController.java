@@ -24,9 +24,14 @@ public class RoutineController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Routine>> listarRutinas(){
+    public ResponseEntity<List<Routine>> listarRutinas() {
         return ResponseEntity.ok(routineService.findAllRoutine());
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminarRutina(@PathVariable Long id) {
+        this.routineService.deleteRuotine(id);
+        return ResponseEntity.ok("Eliminando -> "+id);
+    }
 
 }
