@@ -8,5 +8,5 @@ import java.util.List;
 public interface HabitService {
 
     Habit addHabit(Habit habit);
-
+    void deleteHabit(Long id);
 }

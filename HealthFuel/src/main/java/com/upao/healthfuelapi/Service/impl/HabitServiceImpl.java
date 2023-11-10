@@ -22,5 +22,9 @@ public class HabitServiceImpl implements HabitService {
         return habitRepository.save(habit);
     }
 
+    @Override
+    public void deleteHabit(Long id) {
+        this.habitRepository.deleteById(id);
+    }
 
 }
