@@ -9,4 +9,6 @@ public interface HabitService {
 
     Habit addHabit(Habit habit);
     void deleteHabit(Long id);
+
+    List<Habit> findAllByRoutine(Routine routine);
 }

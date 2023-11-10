@@ -28,4 +28,11 @@ public class HabitController {
         this.habitService.deleteHabit(id);
         return ResponseEntity.ok("Eliminando -> "+id);
     }
+
+    @GetMapping("/rutinas/{id_rutina}")
+    public ResponseEntity<List<Habit>> listarHabitosRutina(@PathVariable Long id_rutina){
+        Routine rt = new Routine();
+        rt.setId(id_rutina);
+        return ResponseEntity.ok(habitService.findAllByRoutine(rt));
+    }
 }
