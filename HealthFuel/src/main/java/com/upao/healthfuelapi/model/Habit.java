@@ -1,5 +1,6 @@
 package com.upao.healthfuelapi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@EqualsAndHashCode(exclude = "routine")
 public class Habit {
 
     @Id
@@ -25,6 +25,7 @@ public class Habit {
 
     @ManyToOne
     @JoinColumn(name = "routine_id")
+    @JsonBackReference
     private Routine routine;
 
 

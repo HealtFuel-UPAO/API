@@ -9,5 +9,7 @@ public interface RoutineService {
 
     List<Routine> findAllRoutine();
 
+    void deleteRuotine(Long id);
+
 }
 
