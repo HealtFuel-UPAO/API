@@ -49,5 +49,14 @@ public class UserServiceTest {
         when(userRepository.findAll()).thenReturn(Collections.singletonList(user));
         assertNotNull(userService.getAllUsers());
     }
-    
+    @Test
+    void registrarUsuario() throws Exception {
+        when(userRepository.save(any(User.class))).thenReturn(user);
+        // Llamar al método del servicio que crea el registro
+        User result = userService.addUser(user);
+        // Verificar que se llamó al método save del repositorio con el registro correcto
+        verify(userRepository, times(1)).save(eq(user));
+        // Verificar que el resultado no es nulo
+        assertNotNull(result);
+    }
 }
