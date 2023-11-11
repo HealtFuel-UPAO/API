@@ -6,6 +6,8 @@ import com.upao.healthfuelapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service  //Lógica de negocios
 public class UserServiceImpl implements UserService{
     //Inyección de dependencias
@@ -23,5 +25,9 @@ public class UserServiceImpl implements UserService{
     @Override
     public User authUser(String username, String password) {
         return userRepository.findByUserNameAndPassword(username,password);
+    }
+    @Override
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }

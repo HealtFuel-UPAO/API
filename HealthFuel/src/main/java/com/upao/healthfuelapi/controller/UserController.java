@@ -5,6 +5,7 @@ import com.upao.healthfuelapi.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/usuarios")
@@ -25,5 +26,10 @@ public class UserController {
     public ResponseEntity<User> autenticarUsuario(@RequestBody User user){
         User us = userService.authUser(user.getUserName(), user.getPassword());
         return ResponseEntity.ok(us);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<User>> listarUsuarios(){
+        return ResponseEntity.ok(userService.getAllUsers());
     }
 }
