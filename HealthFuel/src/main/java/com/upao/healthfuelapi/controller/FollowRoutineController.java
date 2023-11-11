@@ -34,4 +34,9 @@ public class FollowRoutineController {
         System.out.println(followroutine);
         return new ResponseEntity<>(followRoutineService.addFollowRoutine(followroutine), HttpStatus.CREATED);
     }
+
+    @GetMapping
+    public ResponseEntity<List<Followroutine>> listarSeguimientoRutinas(){
+        return ResponseEntity.ok(followRoutineService.getAllFollowRoutines());
+    }
 }
