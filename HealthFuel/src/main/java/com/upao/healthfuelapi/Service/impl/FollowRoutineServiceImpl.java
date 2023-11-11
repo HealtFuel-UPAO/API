@@ -28,4 +28,9 @@ public class FollowRoutineServiceImpl implements FollowRoutineService {
     public Followroutine addFollowRoutine(Followroutine followroutine) {
         return followRoutineRepository.save(followroutine);
     }
+
+    @Override
+    public List<Followroutine> getAllFollowRoutines() {
+        return followRoutineRepository.findAll();
+    }
 }

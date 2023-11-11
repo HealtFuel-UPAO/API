@@ -11,5 +11,7 @@ public interface FollowRoutineService {
     List<Routine> getRoutineByUser(User user);
     Followroutine addFollowRoutine(Followroutine followroutine);
 
+    List<Followroutine> getAllFollowRoutines();
+
 }
 
