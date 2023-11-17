@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Data //Metodos getters, setters, to string, equals
 @Entity //Se vuelva entidad
@@ -17,23 +16,23 @@ public class User {
     @Id //Detallar primary keu de la tabla
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Se genere el id y tenga autoincremento
     //nullabel(si puede ser nulo), length(longitud), unique(no se puede repetir)
-    private long id;
+    private Long id;
     @Column (nullable = false, length = 50)
-    private String first_name;
+    private String firstName;
     @Column (nullable = false, length = 50)
-    private  String last_name;
+    private  String lastName;
     @Column (nullable = false)
-    private LocalDate Birth_date;
+    private LocalDate birthDate;
     @Column (nullable = false, length = 50, unique = true)
-    private String user_name;
+    private String userName;
     @Column (nullable = false)
     private int gender;
-    @Column (nullable = true, length = 200)
+    @Column (nullable = true)
     private String description;
     @Column (nullable = false, length = 50, unique = true)
     private String email;
     @Column (nullable = false, length = 50)
     private String password;
-    @Column (nullable = false)
+    @Column (nullable = false, length = 50)
     private int rol;
 }
