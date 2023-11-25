@@ -53,4 +53,12 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
     }
+
+    @GetMapping("/search/{id}")
+    public ResponseEntity<User> buscarById(@PathVariable Long id) {
+        User searchUser = userService.searchUserId(id);
+        if (searchUser != null)
+            return ResponseEntity.ok(searchUser);
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
 }

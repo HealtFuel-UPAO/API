@@ -34,4 +34,11 @@ public class RoutineController {
         return ResponseEntity.ok("Eliminando -> "+id);
     }
 
+    @PutMapping("/update")
+    public ResponseEntity<Routine> modificarRutina(@RequestBody Routine routine) {
+        Routine modify = routineService.searchById(routine.getId());
+        if(modify != null)
+            return ResponseEntity.ok(routineService.updateRoutine(routine));
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
 }
