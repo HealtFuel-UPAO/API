@@ -2,6 +2,7 @@ package com.upao.healthfuelapi.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 
 @Data //Metodos getters, setters, to string, equals
 @Entity //Se vuelva entidad
+@Builder
 @Table(name = "users")
 @AllArgsConstructor //Constructor con todos los atributos
 @NoArgsConstructor //Constructor sin atributos
