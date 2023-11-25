@@ -42,4 +42,15 @@ public class UserController {
             return ResponseEntity.ok(userService.updateUser(user));
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> eliminarUsuario(@PathVariable Long id){
+        User delete = userService.searchUserId(id);
+        if(delete != null){
+            userService.deleteUser(id);
+            return ResponseEntity.ok("Delete -> "+delete.getUserName());
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+    }
 }

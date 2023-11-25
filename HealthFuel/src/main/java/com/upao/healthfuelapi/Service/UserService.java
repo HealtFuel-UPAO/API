@@ -20,5 +20,7 @@ public interface UserService {
     User searchUser(String username);
 
     User searchUserId(Long id);
+
+    void deleteUser(Long id);
 }
 
