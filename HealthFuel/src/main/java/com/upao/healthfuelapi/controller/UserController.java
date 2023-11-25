@@ -3,6 +3,7 @@ package com.upao.healthfuelapi.controller;
 import com.upao.healthfuelapi.Service.UserService;
 import com.upao.healthfuelapi.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -31,5 +32,14 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<User>> listarUsuarios(){
         return ResponseEntity.ok(userService.getAllUsers());
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<User> modificarUsuario(@RequestBody User user) {
+        System.out.println(user);
+         User modify = userService.searchUserId(user.getId());
+        if (modify != null)
+            return ResponseEntity.ok(userService.updateUser(user));
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }

@@ -13,7 +13,6 @@ public class UserServiceImpl implements UserService{
     //Inyección de dependencias
     @Autowired
     private UserRepository userRepository;
-
     //Registrar un usuario
     @Override
     public User addUser(User user) throws Exception {
@@ -29,5 +28,21 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public User updateUser(User user) {
+        userRepository.save(user);
+        return null;
+    }
+
+    @Override
+    public User searchUser(String username) {
+        return userRepository.findByUserName(username);
+    }
+
+    @Override
+    public User searchUserId(Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 }

@@ -14,5 +14,11 @@ public interface UserService {
     public User authUser(String username, String password);
 
     public List<User> getAllUsers();
+
+    User updateUser(User user);
+
+    User searchUser(String username);
+
+    User searchUserId(Long id);
 }
 
