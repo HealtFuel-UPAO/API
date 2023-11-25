@@ -39,4 +39,14 @@ public class RoutineServiceImpl implements RoutineService {
         this.routineRepository.deleteById(id);
     }
 
+    @Override
+    public Routine updateRoutine(Routine routine) {
+        return routineRepository.save(routine);
+    }
+
+    @Override
+    public Routine searchById(Long id) {
+        return routineRepository.findById(id).orElse(null);
+    }
+
 }

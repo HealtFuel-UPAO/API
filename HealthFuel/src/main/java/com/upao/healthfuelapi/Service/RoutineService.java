@@ -11,5 +11,8 @@ public interface RoutineService {
 
     void deleteRuotine(Long id);
 
+    Routine updateRoutine(Routine routine);
+
+    Routine searchById(Long id);
 }
 
