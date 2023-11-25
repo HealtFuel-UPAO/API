@@ -76,5 +76,22 @@ public class UserTest {
         assertThat(user.getRol()).isNotNegative();
     }
 
+    //Comprueba la existencia de la lista de usuarios
+    @Test
+    void testViewUsers(){
+        List<User> listTest = new ArrayList<>();
+        when(userRepository.findAll()).thenReturn(listTest);
+        List<User> result = userRepository.findAll();
+        assertNotNull(result);
+    }
+
+    //Comprueba que la lista contiene usuarios
+    @Test
+    void testViewUsersIsEmpty(){
+        List<User> listTest = new ArrayList<>();
+        when(userRepository.findAll()).thenReturn(listTest);
+        List<User> result = userRepository.findAll();
+        assertTrue(result.isEmpty());
+    }
 
 }
