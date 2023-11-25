@@ -14,5 +14,8 @@ public interface UserService {
     public User authUser(String username, String password);
 
     public List<User> getAllUsers();
+
+    String login(String username, String password);
+
 }
 

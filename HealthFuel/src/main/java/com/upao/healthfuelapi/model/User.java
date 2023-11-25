@@ -34,5 +34,5 @@ public class User {
     @Column (nullable = false, length = 50)
     private String password;
     @Column (nullable = false, length = 50)
-    private int rol;
+    private String rol;
 }
