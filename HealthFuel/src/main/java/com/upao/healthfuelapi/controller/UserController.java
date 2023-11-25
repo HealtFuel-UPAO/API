@@ -3,9 +3,13 @@ package com.upao.healthfuelapi.controller;
 import com.upao.healthfuelapi.Service.UserService;
 import com.upao.healthfuelapi.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRange;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -20,7 +24,17 @@ public class UserController {
     @PostMapping
     public ResponseEntity<User> registrarUser(@RequestBody User user) throws Exception{
         System.out.println(user);
-        return ResponseEntity.ok(userService.addUser(user));
+        if(user.getBirthDate()!= null && fechaValida(user.getBirthDate())){
+            if(user.getGender()==1 || user.getGender()==0){
+                return ResponseEntity.ok(userService.addUser(user));
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    private boolean fechaValida(LocalDate fechaRecibida){
+        LocalDate fechaActual = LocalDate.now();
+        return !fechaRecibida.isAfter(fechaActual)&&!fechaRecibida.isEqual(fechaActual);
     }
 
     //Iniciar Sesión
